@@ -1,0 +1,144 @@
+# Ceph RGW Scripts Default Configuration
+# Version: 2.0.0
+#
+# This file contains default configuration values for all RGW analysis scripts.
+# Values can be overridden via command-line arguments.
+
+# Bucket Shard Analysis Configuration
+bucket_shard_analysis:
+  # Default percentile for filtering small objects (0.0-1.0)
+  default_percentile: 0.25
+  
+  # Default sort order for results ('asc' or 'desc')
+  default_sort_order: "asc"
+  
+  # Default output format ('table', 'json', or 'csv')
+  default_output_format: "table"
+  
+  # Table formatting padding
+  table_padding: 3
+  
+  # Maximum column width for table output
+  max_column_width: 50
+
+# Bucket Stats Comparison Configuration
+bucket_stats_comparison:
+  # Default minimum objects per shard threshold (0 = no filter)
+  default_min_objects_per_shard: 2000
+  
+  # Default sort criteria ('delta', 'abs-delta', or 'name')
+  default_sort_by: "abs-delta"
+  
+  # Default output format ('table', 'json', or 'csv')
+  default_output_format: "table"
+  
+  # Show all buckets including those with no changes
+  show_all_buckets: false
+  
+  # Table formatting padding
+  table_padding: 3
+
+# Ingestion Analysis Configuration
+ingestion_analysis:
+  # Default objects per shard threshold for filtering
+  default_threshold: 20000
+  
+  # Default number of top buckets to display (0 = all)
+  default_top_n: 10
+  
+  # Default sort criteria ('delta' or 'objects')
+  default_sort_by: "delta"
+  
+  # Show header row in output
+  show_header: true
+  
+  # Default column format for bucket deltas (5, 6, or 7)
+  default_column_format: 7
+
+# Sync Analysis Configuration
+sync_analysis:
+  # Default output format for sync errors
+  default_output_format: "json"
+  
+  # Pretty-print JSON output
+  pretty_print: false
+
+# Output Formatting Configuration
+output:
+  # Padding for table columns
+  table_padding: 3
+  
+  # Maximum width for any column
+  max_column_width: 50
+  
+  # Date/time format string
+  date_format: "%Y-%m-%d %H:%M:%S"
+  
+  # Number formatting (thousand separator)
+  number_format: ","
+  
+  # Decimal places for floating point numbers
+  decimal_places: 2
+
+# Logging Configuration
+logging:
+  # Log level ('DEBUG', 'INFO', 'WARNING', 'ERROR', 'CRITICAL')
+  level: "INFO"
+  
+  # Log format string
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  
+  # Log file path (null = stderr only)
+  file: null
+  
+  # Enable verbose output by default
+  verbose: false
+
+# Performance Configuration
+performance:
+  # Chunk size for processing large files (in records)
+  chunk_size: 1000
+  
+  # Maximum memory usage in MB
+  max_memory_mb: 512
+  
+  # Enable parallel processing where applicable
+  parallel_processing: false
+  
+  # Number of worker threads (0 = auto-detect)
+  worker_threads: 0
+
+# Validation Configuration
+validation:
+  # Strict mode - fail on warnings
+  strict_mode: false
+  
+  # Validate JSON schema
+  validate_schema: true
+  
+  # Maximum file size in MB
+  max_file_size_mb: 1024
+
+# Compatibility Configuration
+compatibility:
+  # Enable legacy mode for backward compatibility
+  legacy_mode: false
+  
+  # Warn about deprecated features
+  warn_deprecated: true
+
+# Advanced Configuration
+advanced:
+  # Enable experimental features
+  experimental_features: false
+  
+  # Cache parsed data for repeated operations
+  enable_caching: false
+  
+  # Cache directory
+  cache_dir: "/tmp/rgw_scripts_cache"
+  
+  # Cache expiration in seconds
+  cache_expiration: 3600
+
+# Made with Bob
